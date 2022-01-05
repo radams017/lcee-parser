@@ -1,0 +1,1775 @@
+Delivered-To: clobosco@liveintent.com
+Received: by 2002:a5d:4307:0:0:0:0:0 with SMTP id h7csp378935wrq;
+        Wed, 5 Jan 2022 08:57:14 -0800 (PST)
+X-Received: by 2002:a05:6512:1113:: with SMTP id l19mr48181194lfg.605.1641401834640;
+        Wed, 05 Jan 2022 08:57:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1641401834; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PATwnABMDQTUzlL80apKmQWOZOCRUjc+ltdYqeqDjPM2vvsNBffLWU3zSGzufe1NSy
+         V8Gw4ygbnQ4DrP87N303X6cxuoACo7eDBHvrqjR3Smc0nCuvQJ8gsgjVvs6Wt6xUWYck
+         6vzg9V0JpzDzaKGL7iIfiuaevxwpGBk87+dsTqL3oZH09Q2V3OUhDal3gkj75tkTVEPa
+         xjTFqWsY0YWx7lWEwAuyDOM+qlbVxdgngZE7xRtyVLxH09FUDQZmC8zlX5NmwBBMqjOI
+         E/B0hpHuq4BdlLRgQ3Q/9Pi0y16f6GYI2HfOhYKi9IBV/NM/8ZXdUveCulnh4eWa2paC
+         PH9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=RHJrPoplWBpJS5gPBAsr3LIQBa+u4kVNezB0O8RTxnU=;
+        b=vPgHyvUry40kIzp/o7SqCAtz0rbPZX8a20BLIxjFPHqQjztZsNPoaBlBsaEtueNJPk
+         6gHSoWwx9p/D7oBZh64i2so3DF5GfDlINvN40bffAF9xd9XdJQjdiNY9zUnx0M6GDWN5
+         hr0TghxDM4bLcl+I/N7QF5TM46AzQwZlY8GnbdSkxxR/XQCn+dfV2yL8AzH5F4S2Edb9
+         09qfQsJ23246/Iud5V5urv+Ej7oqf29Oe+xNvXuRWTEqyaS02zW8YikwBaEoOfKBVTAK
+         tigd0dwUx30OFngz7SWdki3WKqQKMYqPRLgCJ0cznsWb+ZdObRXWa19ZLR9zzmRd0x02
+         xvBw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=FseErSpU;
+       spf=pass (google.com: domain of christenlobosco@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=christenlobosco@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <christenlobosco@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id k23sor15204355lje.20.2022.01.05.08.57.14
+        for <clobosco@liveintent.com>
+        (Google Transport Security);
+        Wed, 05 Jan 2022 08:57:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of christenlobosco@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=FseErSpU;
+       spf=pass (google.com: domain of christenlobosco@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=christenlobosco@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=RHJrPoplWBpJS5gPBAsr3LIQBa+u4kVNezB0O8RTxnU=;
+        b=FseErSpUkK0KP3cK7bVStGQ20fiLnMa0+n43bZeXKqQLELYMtSpiSPvv+uOJqus8fV
+         2cwOkJgtEeTi0qayqu1LS2l6qkvof/fPLndp+YGEESpHwDXhVTUC6vVA+q+UxQ/0t5j6
+         p2cCfkkOF2m9kHKyK/yHeEt4KW2c75zo7B7V2QI38bLReAgLRFg8zBDSpIarstbYolBn
+         ob4QmxGsBuBIPtLcMQjg531Va7rT91T4xl+nT6ZomnfYqARlLQZB5N2aomkWS/eXB0Dh
+         OGgmAtyFggtF8GjLZJO4s6f4xg2f6DHWUTP+Z0soZTP2QK0rvQEB29aslqd61NRINV88
+         tP/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=RHJrPoplWBpJS5gPBAsr3LIQBa+u4kVNezB0O8RTxnU=;
+        b=BjWLBO6zS8vB6bxDWh2UT1AHN2rvR+BTL+csYAQzEmgLgOc+UjiZJZIQvnCaNsqYLY
+         UXaRu5swpUtF0t/O0DQ6cyx52zeb+pvCi7OnTcpHdivmLoasnOdb7vs/TqXOQpe1wCSU
+         zeJlEMcOp3zVAJF9nQMtqacBjyOz/A/molygvqSEdVBQakl5gzjq5uErTdVoBjmOFM5S
+         bn7dkQFMmMXag2ow/MtaggoKzxiUW3j8oIQQ+CnMBzh/L+weEe6q/5iKXZ6J+r9E49LW
+         6UAoiqEVUY3hL0O0ZPmsg/Bsn3G8VDUeEOPbYvwELXD1HFiHWS1MLEYRBBzv/OLXZUOr
+         wueQ==
+X-Gm-Message-State: AOAM533guuhPZtrr9AH5A/u/1ZeWN/DnsB92cAMGZcYr+2e5fiSLkjla
+	aO7rf/FKAU8veAIT9VIv8k7hiMEzogJF93F/eVwcsrOy
+X-Google-Smtp-Source: ABdhPJxeymw0Ynt94OPQmJFKTpi4ELAzsQM/si+COwmj9ITV+4ePnVVSguUWwD+p8Pm0fzceaF6VPELYT1PSzU/4v3M=
+X-Received: by 2002:a2e:8643:: with SMTP id i3mr25335458ljj.163.1641401833836;
+ Wed, 05 Jan 2022 08:57:13 -0800 (PST)
+MIME-Version: 1.0
+References: <0.0.48.F0E.1D801175D577476.1EFFE@vmta160.84.lstrk.net>
+In-Reply-To: <0.0.48.F0E.1D801175D577476.1EFFE@vmta160.84.lstrk.net>
+From: Christen Lobosco <christenlobosco@gmail.com>
+Date: Wed, 5 Jan 2022 11:57:02 -0500
+Message-ID: <CACeGE9W_QcpERe4jfjXjBoLSLvOaJ4LbV_rt=aLd8vCmFACn1w@mail.gmail.com>
+Subject: Fwd: Kelly Ernby, deputy DA and former Assembly candidate, has died
+ of COVID-19 complications
+To: Christen Lobosco <clobosco@liveintent.com>
+Content-Type: multipart/alternative; boundary="0000000000003d52a105d4d8a512"
+
+--0000000000003d52a105d4d8a512
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: Coronavirus Update <email@newsletters.ocregister.com>
+Date: Mon, Jan 3, 2022, 10:02 PM
+Subject: Kelly Ernby, deputy DA and former Assembly candidate, has died of
+COVID-19 complications
+To: <christenlobosco@gmail.com>
+
+
+Your guide to the coronavirus, from your local newsroom
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C
+
+View this email with images.
+<http://enews.newsletters.ocregister.com/q/hBW2B3ODrXUM0n4tIkFH2koxoTFW1bCu=
+iiI8Yyu1YLoCKoqQOahgtlRdE>
+
+<http://enews.newsletters.ocregister.com/q/SzzL65nLykHk0Xdb0G9n1B26o607pA2x=
+m3gZcOLJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIssfbLZixd6FYPLjGucHdnLTG2A>
+<http://enews.newsletters.ocregister.com/q/aCqryrkrN9KR0XvALDgTHGSDsUc0s4xr=
+trgZcOJY2hyaXNL0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIPbk5iSd5fZ96V3gOGz2dxju4Og>
+<http://enews.newsletters.ocregister.com/q/Wk9HeG2mA1Ly0XFFMmi1jzGmd0VSnxNe=
+xTWZcOJY2hLyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIDiufNm-keaKnZ0opIOaf_QgqnA>
+Kelly Ernby, deputy DA and former Assembly candidate, has died of COVID-19
+complications
+<http://enews.newsletters.ocregister.com/q/Ilii9crx0PRv0X7LMhjyEIHG59_fLk9w=
+tzK8ZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI9MRwIDh5cKg_hSyRwnBoxvLFcw>
+<http://enews.newsletters.ocregister.com/q/BLZnG0g_su0Q0XUebtv-SLAV8Uu99BG9=
+UBbsZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIhQ5EUOOJcZNMIhWI6JSkRIMPRw>
+
+Condolences were pouring in online Monday for Kelly Ernby, who was a
+Huntington Beach resident and presumed 2022 candidate for Assembly.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/xoEHc92ZlYKz0XIz3irR7WbK5HoIVmeu=
+I4ZZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmLNvbcOI0cfk0wsgeJ10ru_EuVdCNNfG5w>
+OC=E2=80=99s COVID-19 cases up, hospitals busy =E2=80=93 but we=E2=80=99re =
+in better shape than
+earlier surges, experts say
+<http://enews.newsletters.ocregister.com/q/gGyG70qiSXuq0XkFGs6hjrGFgdo0Jt8R=
+nkqZcOJY2hyaXN0ZW5sbL2Jvc2NvQGdtYWlsLmNvbcOI4A0XZ-WveIPtTWPMeGPUMeYMFA>
+<http://enews.newsletters.ocregister.com/q/Mcq28bng1aAV0XjmPtN0-Uc4us-oTDpx=
+LsGxZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI0l1BJUR4eY8KrJDyFdef5tRcQg>
+
+Hospitals are also busy for other reasons, including staffing shortages,
+patients seeking non-COVID care they delayed earlier, and even people
+heading to emergency rooms with mild symptoms hoping to learn whether they
+have COVID-19.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/FK8ps9rHfGQH0XS2aeoNHATJ4Lw9ntAC=
+pd2IZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2waCAOzNcrYk8oiIU4on290HgQ>
+<http://enews.newsletters.ocregister.com/q/RXWZyWTbfL-30XFqRsx8ypge-peM-nud=
+OtrZcLOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOINvdJdtFJdZkXD2Gt8rvkHjD2Sg>
+
+<http://enews.newsletters.ocregister.com/q/nMlMQF2JjnVe0XOY72Z0hDlRofq83SG7=
+nDhZcOJY2hyaXN0ZW5sb2Jvc2NvLQGdtYWlsLmNvbcOIa_gtPjuGd6edD6rB151Pa235Lg>
+<http://enews.newsletters.ocregister.com/q/iDkn4yD99qS90XbOFheqHz3flQuMsOM9=
+MF7ZcOJY2hyaXN0ZW5sb2JLvc2NvQGdtYWlsLmNvbcOIVOoX-OLtdKL4GC--XLRp61LrFA>
+<http://enews.newsletters.ocregister.com/q/pgbaY00S7etl0XuZg3SDiF2uDhnIt8YU=
+57DZcOJY2hyaXN0ZW5sb2Jvc2NvQGLdtYWlsLmNvbcOI4JPaC0ZMcYkDthWUfvQ03eaS2Q>
+Orange County coronavirus tracker: Cases, vaccines, maps and more
+<http://enews.newsletters.ocregister.com/q/ndUVv7F3g1mY0X5bOAas1526rLC3Hm60=
+E-9ZcOJY2hyaXN0ZW5sb2Jvc2NvLQGdtYWlsLmNvbcOIit3Gf5ywfr5rWApLO-8KqYzcxQ>
+<http://enews.newsletters.ocregister.com/q/1wMmu9Ve28mLB0X4kYHOe8wYQZq95g87=
+32rZZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIaAGwSRu5frMKLjH4ZvTXNm4Asw>
+
+The coronavirus pandemic continues to take a toll across Orange County.
+Here is the latest information available from the county and state health
+departments, and a look at how the numbers have changed over time.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/KZt6gUfl5r3s0XHPkQwWngdE--YKL-LS=
+6u9zZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIAfpcPNunc70VWT7PWut_Pwf7Xw>
+Omicron surge prompts Newport Beach to close City Hall, other spots, to
+public
+<http://enews.newsletters.ocregister.com/q/sgLxPWcq7iK_0XYz5KLs7-bKdcRQuKAt=
+gjxZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYLWlsLmNvbcOIx4nvU18gcawgGDYBkxYNxcGI7A>
+<http://enews.newsletters.ocregister.com/q/RJ0ukByQlliq0XsEs9FI0lS_WVvBRj-h=
+OAYZcLOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIi1DtVyceeYu1ltounx5Who1R7g>
+
+The closures will last at least two weeks, as O.C. residents scramble for
+tests and the rapid spread of the COVID-19 variant affects businesses, air
+travel, education, sports and other aspects of life around the nation.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/riYMUDvR5OON0XGOnl0kHW3EJQQPocxK=
+D4KZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtLYWlsLmNvbcOIIJOyltGgc7vDtTjCytMFUSaSsQ>
+<http://enews.newsletters.ocregister.com/q/_vveMmI6tugC0XM5e6-IzBlsqK-Ivq_o=
+lJKZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLLmNvbcOIg6HAjXhxf7m_C9bFIieRdoWgww>
+<http://enews.newsletters.ocregister.com/q/yf_kH2XFbFyq0XjLz09mEoHwO_qkWWVG=
+zimZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNLvbcOIKpYmtDUPdJNSzFD2A3EmuyyXJQ>
+<http://enews.newsletters.ocregister.com/q/WoWT5egAGhVI0XvSm7FB92efF6dFrkZv=
+WTmZcOJY2hLyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI7iHfMBuldbG4xvz07Jse8ugg3A>
+Looking for a COVID-19 test in Orange County? Many others are too
+<http://enews.newsletters.ocregister.com/q/hLR-NxhdDPcC0XqF0LXgjTG9d2JxOgZC=
+sPEZcOJY2hyaXN0ZW5sb2LJvc2NvQGdtYWlsLmNvbcOIvkWLOIpWfr8iNGy3rEs217hEiA>
+<http://enews.newsletters.ocregister.com/q/9FjUaDDhY3Zd0X_0BbyLvjb9786LhETP=
+iwGbZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI4jMY9z1wcaNGjKtaUP693OQyGw>
+
+Local health care officials say tests are available =E2=80=93 both in perso=
+n and
+via free at-home kits Orange County will mail to anyone who asks =E2=80=93 =
+but
+residents have been reporting long lines, fully booked calendars and empty
+shelves at local stores.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/sIwWz6aSAhtb0XvZr0Tsim2KzhdSsf40=
+5XPZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYLWlsLmNvbcOILMUm-t2ocJU7sa9fL_cIkCrEJQ>
+More than 100 flights already canceled Monday at John Wayne, Long Beach,
+LAX and Burbank
+<http://enews.newsletters.ocregister.com/q/xPZ4_1yov8Ow0XdxUMOdY-Ryryf_oIyU=
+xYiZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmLNvbcOIszOaFVfwc65q4hUmOcYMy7UymQ>
+<http://enews.newsletters.ocregister.com/q/SjZqi7zFCQBp0XxGSoz73KjAK0jINvTK=
+YFxZcOLJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI3EHT0iKsf6hl_kH8JMQ_LtpA0A>
+
+Another wave of flight cancellations hit Southern California airports
+Monday, with more than 100 scuttled due to COVID-19 and weather issues as
+of 6:30 a.m.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/h85b7zg46sQK0XI2lF1nHjTeGqJ0kUJs=
+2SLZcOJY2hyaXN0ZW5sb2LJvc2NvQGdtYWlsLmNvbcOIYcrM-fElc7vvAay2xqRWbGfLzw>
+<http://enews.newsletters.ocregister.com/q/55S2B7Ps-q4W0XzLKNEoOko8H0TWxUfc=
+LgfoZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI93njVoQueqSvX3oF2sx3pfF44A>
+<http://enews.newsletters.ocregister.com/q/tvvF6hdjJgaX0XnuILZvRiNYvw0_QA3M=
+jgdZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWLlsLmNvbcOIX_AUMDrZf5uxD0vt98vo4FnxFw>
+<http://enews.newsletters.ocregister.com/q/MQJ1_7XemfN30XiXj_i7de36BRsm06av=
+LoRWZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIuVXKtsgwcIJxuQBCbkkR-b9UyQ>
+OC high school sports teams feel impact of COVID-19 surge, make minor
+adjustments
+<http://enews.newsletters.ocregister.com/q/vmAYRSVC4-Uj0XUhXvqm1k5pzEBgprNb=
+J55ZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLLmNvbcOIbfTdqrNLcZjXfY6N5C0XFGv13g>
+<http://enews.newsletters.ocregister.com/q/4NGx2mPyHUAD0XLk8aUe3QBRS00cEejU=
+TGFqZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOISF9mMKJ9d53kLKuGaHulTE5eZQ>
+
+Several games have been canceled or postponed among growing concerns but
+the winter sports season continues.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/PknYx2sMNIex0XZ629zVUGY09IEl6cFM=
+TsmLZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2eFlTsEPdZRsWZPP7_OpVN_gZg>
+Grad Nite returns to Disneyland in 2022 after two-year coronavirus hiatus
+<http://enews.newsletters.ocregister.com/q/xEYPeqWAjzl60XjJhUTeRIiRpKYL0XpN=
+iB8ZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmLNvbcOIuyu_aMZBeZQcqb4qYDkM9L0qvA>
+<http://enews.newsletters.ocregister.com/q/BiSomDZi05-M0XeqLlJuyLJgKOPC0Ksc=
+x9oYZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI0LyfZ_s9eYui60wOLqep3da9nA>
+
+Grad Nite 2022 celebrations will take place on 16 dates in May and June at
+Disney California Adventure.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/Q04UgladomXT0XfjRzIx6hoKjR9IiwXt=
+hofZLcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIW2V4skSmcYjKzDFbeNQ3Xl1kew>
+<http://enews.newsletters.ocregister.com/q/Q4BsLQ83k6nV0X0rB4rwNASGfw1Vl4RB=
+46tZLcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIMFCS5IY_dJzEBnJmrlF96DZRkQ>
+<http://enews.newsletters.ocregister.com/q/0gucofvYx1LX00XnZS6obim2LgyksP_d=
+G7fgZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIKJ1kN_LKe7r8fPZ5Z62V5C6cZw>
+<http://enews.newsletters.ocregister.com/q/UdWwkGXLsFy10XY4H85UVOKPSUqf3Bz2=
+41DZcOJYL2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2TCw3KFoeL80kXr4Z-Xfxt8xsw>
+COVID: Travelers infected one another across hallway, research shows
+<http://enews.newsletters.ocregister.com/q/ZhOt5r4BSNPx0XRQUQAvSvp2Ju8V_MH-=
+dRcZcOJY2hyaXLN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIrtmxkh_1cax4onIq16HLc6jYsg>
+<http://enews.newsletters.ocregister.com/q/anqIvnYMYe250XuMSLpy_1djZwxrajdR=
+nI7ZcOJY2hyaXNL0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIUSlv-LuXdrg3w3i2vH42FVcobA>
+
+A traveler isolated for Covid-19 at a quarantine facility in New Zealand
+managed to infect three others across a hallway, researchers reported
+Thursday.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/TrQu5UbQIJn80XFRWruWM66vZ-F2OA1I=
+rXTZcOJLY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIuXi_ann_cro7roEFYeUW2r95vA>
+Rep. Greene says Facebook blocked her account for 24 hours
+<http://enews.newsletters.ocregister.com/q/_mTPQlK4WzE60XBOdfuvHS3Gq_ptg02q=
+M3wZcOJY2hyaXN0ZW5sb2Jvc2NLvQGdtYWlsLmNvbcOIfxX1mxkOdrHvhnASgrh3RHkU9g>
+<http://enews.newsletters.ocregister.com/q/CbCiz_gGXVED0XZl77VSZSL9ASJiSw_K=
+gceOZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIrckDoGDacpWaVMtfrjyc1qvIAA>
+
+The congresswoman has a long history of embracing baseless conspiracy
+theories, and she has been a serial tweeter of false claims -- about the
+election, the Capitol insurrection and other subjects -- since she won her
+seat in November 2020.
+Read more =E2=86=92
+<http://enews.newsletters.ocregister.com/q/6yk9VkZvpybI0XQuLsaVKRrNT4wFn4o7=
+PDjWZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIdWJG9UcMdqNhP9HRRYCg33NjRQ>
+<http://enews.newsletters.ocregister.com/q/52iMFYXdV_5J0XaLperoXmGh8s7HvfKi=
+xY-hZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI0H8FC0ODe4FTi85j7Pmw7tZ-Bg>
+<http://enews.newsletters.ocregister.com/q/uh93hek0O05v0XSp-x79m1hW2Cmcobwb=
+OkOZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlLsLmNvbcOIWGRDpQevcY2KyIv1p_aWCl5lQA>
+<http://enews.newsletters.ocregister.com/q/oc-ndA5gjvwo0Xfmu9Tx-zcCpFXpY6V4=
+cVnZcOJY2hyaXN0ZW5sb2Jvc2NvQLGdtYWlsLmNvbcOIwRYfFwW5dIMqotdOe7lx-McXHA>
+
+Connect with The Orange County Register
+Digital Subscription Sign up for a digital subscription to The Orange
+County Register
+<http://enews.newsletters.ocregister.com/q/Zw9EUxyOhuMV0X_nScT9tAisoXnG6Sk9=
+T_eZcOJY2hyaXLN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIlpaGOYkBeabPfpcmjQdMwZCXhQ>
+Sign
+up
+<http://enews.newsletters.ocregister.com/q/Vrb4ZNxstaC60X_AlFiZH8SqwaEvTPQM=
+0NrZcOJY2LhyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIK8yUaWWgf7GsigDYJER7Ei3Nlw>
+for more newsletters
+Follow us [image: facebook]
+<http://enews.newsletters.ocregister.com/q/3Z0srInUpS3p0LXC7nQUhHJJNtuLn5zc=
+LW1mZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIt5Y4JboIcLp79j6EzmdzdrGXOw>
+[image:
+twitter]
+<http://enews.newsletters.ocregister.com/q/LMkiDbl96tbH0X_7QJ7qHuJA3uq7hXJL=
+GJIeZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIPRG0dWw_fLfT1v9msu5_YTsQtw>
+[image:
+instagram]
+<http://enews.newsletters.ocregister.com/q/TF7GeyeIb3np0XTQKmKrS2pz4uXb6syJ=
+fWqZcOJLY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIJgu1SUh-doMBoaeYtJCb_iAKtg>
+You are receiving this email because you are signed up for this newsletter
+from the Southern California News Group, which is comprised of the Orange
+County Register, Press-Enterprise, Los Angeles Daily News, Long Beach
+Press-Telegram, Daily Breeze, San Gabriel Valley Tribune, Pasadena
+Star-News, Whittier Daily News, San Bernardino Sun, Inland Valley Daily
+Bulletin and Redlands Daily Facts
+Unsubscribe
+<http://enews.newsletters.ocregister.com/q/g02xDzWpuRnd0XGM19Kj_fdAuwiVOAVe=
+gePZcOJY2hyaXN0ZW5sbL2Jvc2NvQGdtYWlsLmNvbcOIAdnNbQhEcKWbPnX_49IuhgfYzg>
+| =C2=A9 2022 The Orange County Register 2190 S. Towne Center Place Anaheim=
+, CA
+92806
+
+--0000000000003d52a105d4d8a512
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cla=
+ss=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong c=
+lass=3D"gmail_sendername" dir=3D"auto">Coronavirus Update</strong> <span di=
+r=3D"auto">&lt;<a href=3D"mailto:email@newsletters.ocregister.com">email@ne=
+wsletters.ocregister.com</a>&gt;</span><br>Date: Mon, Jan 3, 2022, 10:02 PM=
+<br>Subject: Kelly Ernby, deputy DA and former Assembly candidate, has died=
+ of COVID-19 complications<br>To:  &lt;<a href=3D"mailto:christenlobosco@gm=
+ail.com">christenlobosco@gmail.com</a>&gt;<br></div><br><br><u></u>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style=3D"width:100%!important;min-width:100%;margin:0;padding:0;box-si=
+zing:border-box;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;text-align:left;line-height:1.3;font-size:16px">
+<div style=3D"display:none;font-size:1px;line-height:1px;max-height:0px;max=
+-width:0px;opacity:0;overflow:hidden">Your guide to the coronavirus, from y=
+our local newsroom</div>
+<div style=3D"display:none;font-size:1px;line-height:1px;max-height:0px;max=
+-width:0px;opacity:0;overflow:hidden">=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C</div>
+<br><center><font face=3D"Verdana, Arial" size=3D"1" style=3D"font-size:10p=
+x"><a href=3D"http://enews.newsletters.ocregister.com/q/hBW2B3ODrXUM0n4tIkF=
+H2koxoTFW1bCuiiI8Yyu1YLoCKoqQOahgtlRdE" target=3D"_blank" rel=3D"noreferrer=
+">View this email with images.</a></font></center><br><br>
+
+<table id=3D"m_1388729488663364887safeRTB" style=3D"display:none" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"40">
+<tbody>
+<tr>
+<td><img border=3D"0" height=3D"6" src=3D"https://sli.ocregister.com/imp?s=
+=3D126084700&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D01=
+0322220106&amp;lctg=3D344394F8A5025479D5D375D4D8" width=3D"2"></td>
+<td><img border=3D"0" height=3D"6" src=3D"https://sli.ocregister.com/imp?s=
+=3D126084701&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D01=
+0322220106&amp;lctg=3D344394F8A5025479D5D375D4D7" width=3D"2"></td>
+<td><img border=3D"0" height=3D"6" src=3D"https://sli.ocregister.com/imp?s=
+=3D126084702&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D01=
+0322220106&amp;lctg=3D344394F8A5025479D5D375D4D7" width=3D"2"></td>
+<td><img border=3D"0" height=3D"6" src=3D"https://sli.ocregister.com/imp?s=
+=3D126084703&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D01=
+0322220106&amp;lctg=3D344394F8A5025479D5D375D4D7" width=3D"2"></td>
+<td><img border=3D"0" height=3D"6" src=3D"https://sli.ocregister.com/imp?s=
+=3D126084704&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D01=
+0322220106&amp;lctg=3D344394F8A5025479D5D375D4D7" width=3D"2"></td>
+</tr>
+</tbody>
+</table>
+<table class=3D"m_1388729488663364887body" style=3D"border-spacing:0;border=
+-collapse:collapse;padding:0;vertical-align:top;text-align:left;background:=
+#f3f3f3;height:100%;width:100%;color:#0a0a0a;font-family:Helvetica,Arial,sa=
+ns-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px">
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+580px;margin:10px auto">
+<tr>
+<td colspan=3D"2">
+<a href=3D"http://enews.newsletters.ocregister.com/q/SzzL65nLykHk0Xdb0G9n1B=
+26o607pA2xm3gZcOLJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIssfbLZixd6FYPLjGucHdn=
+LTG2A" rel=3D"nofollow noreferrer" target=3D"_blank"><img border=3D"0" src=
+=3D"https://sli.ocregister.com/imp?s=3D759880&amp;li=3D13333091&amp;e=3Dchr=
+istenlobosco@gmail.com&amp;p=3D010322220106&amp;lctg=3D344394F8A5025479D5D3=
+75D4D7" style=3D"width:100%;max-width:580px!important" width=3D"580"></a>
+</td>
+</tr>
+<tr>
+<td align=3D"right">
+<a href=3D"http://enews.newsletters.ocregister.com/q/aCqryrkrN9KR0XvALDgTHG=
+SDsUc0s4xrtrgZcOJY2hyaXNL0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIPbk5iSd5fZ96V3gOGz2dx=
+ju4Og" rel=3D"nofollow noreferrer" style=3D"display:block;width:116px;float=
+:right;max-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://=
+sli.ocregister.com/imp?s=3D759881&amp;li=3D13333091&amp;e=3Dchristenlobosco=
+@gmail.com&amp;p=3D010322220106"></a>
+</td>
+<td align=3D"left" style=3D"width:19px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/Wk9HeG2mA1Ly0XFFMmi1jz=
+Gmd0VSnxNexTWZcOJY2hLyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIDiufNm-keaKnZ0opIOaf_=
+QgqnA" rel=3D"nofollow noreferrer" style=3D"display:block;max-width:19px;ma=
+x-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://sli.ocreg=
+ister.com/imp?s=3D759883&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.co=
+m&amp;p=3D010322220106"></a>
+</td>
+</tr>
+</table>
+<table class=3D"m_1388729488663364887masthed" style=3D"border-spacing:0;bor=
+der-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:10=
+0%;max-width:710px;margin:0 auto;background-color:#ffffff"><tbody><tr style=
+=3D"padding:0;vertical-align:top;text-align:left">
+<td class=3D"m_1388729488663364887titlehed" style=3D"word-wrap:break-word;b=
+order-collapse:collapse!important;padding:0;vertical-align:top;text-align:l=
+eft;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:normal=
+;margin:0;line-height:1.3;font-size:16px">
+<center style=3D"width:100%;min-width:580px">
+<img style=3D"width:155px;outline:none;text-decoration:none;max-width:none;=
+clear:both;display:inline" src=3D"https://mediacdn.espssl.com/5017/Shared/N=
+ewspaper%20Logos%20420width/ocregister.png"><img src=3D"https://apps.mercur=
+ynews.com/newsletters/coronavirus-scng/img/header-image.png" style=3D"outli=
+ne:none;text-decoration:none;width:100%;max-width:none;clear:both;display:i=
+nline">
+</center>
+</td>
+</tr></tbody></table>
+</td>
+</tr>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td align=3D"center" valign=3D"top" style=3D"word-wrap:break-word;border-co=
+llapse:collapse!important;padding:0;vertical-align:top;text-align:center;co=
+lor:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:normal;margi=
+n:0 auto;line-height:1.3;font-size:16px;float:none">
+<center style=3D"width:100%;min-width:580px">
+<table align=3D"center" class=3D"m_1388729488663364887container" style=3D"b=
+order-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-=
+align:center;background:#fefefe;width:710px;margin:0 auto;float:none"><tbod=
+y>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/Ilii9crx0PRv0X7LMhjyEI=
+HG59_fLk9wtzK8ZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI9MRwIDh5cKg_hSyRwnBox=
+vLFcw" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">Kelly Ernby, deputy DA and fo=
+rmer Assembly candidate, has died of COVID-19 complications</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/BLZnG0g_su0Q0XUebtv-SL=
+AV8Uu99BG9UBbsZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIhQ5EUOOJcZNMIhWI6JSkR=
+IMPRw" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/OCR-L-ERNBYOBIT-0104.jpg?w=3D1400px&=
+amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"outline=
+:none;text-decoration:none;width:auto;max-width:100%;clear:both;display:blo=
+ck;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+Condolences were pouring in online Monday for Kelly Ernby, who was a Huntin=
+gton Beach resident and presumed 2022 candidate for Assembly.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/xoEHc92ZlYKz0XIz3irR7W=
+bK5HoIVmeuI4ZZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmLNvbcOI0cfk0wsgeJ10ru_EuVdCN=
+NfG5w" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/gGyG70qiSXuq0XkFGs6hjr=
+GFgdo0Jt8RnkqZcOJY2hyaXN0ZW5sbL2Jvc2NvQGdtYWlsLmNvbcOI4A0XZ-WveIPtTWPMeGPUM=
+eYMFA" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">OC=E2=80=99s COVID-19 cases u=
+p, hospitals busy =E2=80=93 but we=E2=80=99re in better shape than earlier =
+surges, experts say</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/Mcq28bng1aAV0XjmPtN0-U=
+c4us-oTDpxLsGxZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI0l1BJUR4eY8KrJDyFdef5=
+tRcQg" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/OCR-L-OCSURGE-0104-02-PB.jpg?w=3D140=
+0px&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"out=
+line:none;text-decoration:none;width:auto;max-width:100%;clear:both;display=
+:block;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+Hospitals are also busy for other reasons, including staffing shortages, pa=
+tients seeking non-COVID care they delayed earlier, and even people heading=
+ to emergency rooms with mild symptoms hoping to learn whether they have CO=
+VID-19.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/FK8ps9rHfGQH0XS2aeoNHA=
+TJ4Lw9ntACpd2IZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2waCAOzNcrYk8oiIU4on2=
+90HgQ" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+
+<div>
+<table width=3D"auto" cellpadding=3D"0" cellspacing=3D"0">
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top" style=3D"padding:0 0px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/RXWZyWTbfL-30XFqRsx8yp=
+ge-peM-nudOtrZcLOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOINvdJdtFJdZkXD2Gt8rvkH=
+jD2Sg" target=3D"_blank" rel=3D"noreferrer"> <img src=3D"https://sli.ocregi=
+ster.com/imp?s=3D812440&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com=
+&amp;p=3D010322220106&amp;stpe=3Ddefault&amp;li_coord=3Ddesktop&amp;collaps=
+e_width=3D678" width=3D"678" border=3D"0" style=3D"display:block;height:aut=
+o;width:100%;max-width:678px" alt=3D"" class=3D"m_1388729488663364887lihide=
+"> </a>
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" align=3D"left" valign=3D"top">
+
+<div style=3D"display:none;float:left;overflow:hidden;width:0;max-height:0;=
+line-height:0" class=3D"m_1388729488663364887lishow">
+<table width=3D"auto" cellpadding=3D"0" cellspacing=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top" style=3D"padding:0 0px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/nMlMQF2JjnVe0XOY72Z0hD=
+lRofq83SG7nDhZcOJY2hyaXN0ZW5sb2Jvc2NvLQGdtYWlsLmNvbcOIa_gtPjuGd6edD6rB151Pa=
+235Lg" target=3D"_blank" rel=3D"noreferrer"> <img src=3D"https://sli.ocregi=
+ster.com/imp?s=3D812440&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com=
+&amp;p=3D010322220106&amp;stpe=3Ddefault&amp;li_coord=3Dmobile&amp;collapse=
+_width=3D400" width=3D"100%" border=3D"0" style=3D"display:block;height:aut=
+o;width:100%" alt=3D""> </a>
+</td>
+</tr>
+</table>
+</div>
+
+</td>
+</tr>
+<tr>
+<td align=3D"left">
+<a style=3D"display:block;max-width:116px;max-height:15px" href=3D"http://e=
+news.newsletters.ocregister.com/q/iDkn4yD99qS90XbOFheqHz3flQuMsOM9MF7ZcOJY2=
+hyaXN0ZW5sb2JLvc2NvQGdtYWlsLmNvbcOIVOoX-OLtdKL4GC--XLRp61LrFA" rel=3D"nofol=
+low noreferrer" target=3D"_blank"> <img src=3D"https://sli.ocregister.com/i=
+mp?s=3D812441&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D0=
+10322220106&amp;stpe=3Dstatic" border=3D"0"> </a>
+</td>
+<td align=3D"right">
+<a style=3D"display:block;max-width:69px;max-height:15px" href=3D"http://en=
+ews.newsletters.ocregister.com/q/pgbaY00S7etl0XuZg3SDiF2uDhnIt8YU57DZcOJY2h=
+yaXN0ZW5sb2Jvc2NvQGLdtYWlsLmNvbcOI4JPaC0ZMcYkDthWUfvQ03eaS2Q" rel=3D"nofoll=
+ow noreferrer" target=3D"_blank"> <img src=3D"https://sli.ocregister.com/im=
+p?s=3D812442&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.com&amp;p=3D01=
+0322220106&amp;stpe=3Dstatic" border=3D"0"> </a>
+</td>
+</tr>
+</table>
+</div>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/ndUVv7F3g1mY0X5bOAas15=
+26rLC3Hm60E-9ZcOJY2hyaXN0ZW5sb2Jvc2NvLQGdtYWlsLmNvbcOIit3Gf5ywfr5rWApLO-8Kq=
+YzcxQ" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">Orange County coronavirus tra=
+cker: Cases, vaccines, maps and more</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/1wMmu9Ve28mLB0X4kYHOe8=
+wYQZq95g8732rZZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIaAGwSRu5frMKLjH4ZvTXN=
+m4Asw" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2021/03/occovidmap03292021.jpg?w=3D1400px&am=
+p;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"outline:n=
+one;text-decoration:none;width:auto;max-width:100%;clear:both;display:block=
+;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+The coronavirus pandemic continues to take a toll across Orange County. Her=
+e is the latest information available from the county and state health depa=
+rtments, and a look at how the numbers have changed over time.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/KZt6gUfl5r3s0XHPkQwWng=
+dE--YKL-LS6u9zZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIAfpcPNunc70VWT7PWut_P=
+wf7Xw" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/sgLxPWcq7iK_0XYz5KLs7-=
+bKdcRQuKAtgjxZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYLWlsLmNvbcOIx4nvU18gcawgGDYBkxYNx=
+cGI7A" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">Omicron surge prompts Newport=
+ Beach to close City Hall, other spots, to public</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/RJ0ukByQlliq0XsEs9FI0l=
+S_WVvBRj-hOAYZcLOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIi1DtVyceeYu1ltounx5Wh=
+o1R7g" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/1020_nws_cur-l-cc-1026-_01.jpg?w=3D1=
+400px&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"o=
+utline:none;text-decoration:none;width:auto;max-width:100%;clear:both;displ=
+ay:block;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+The closures will last at least two weeks, as O.C. residents scramble for t=
+ests and the rapid spread of the COVID-19 variant affects businesses, air t=
+ravel, education, sports and other aspects of life around the nation.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/riYMUDvR5OON0XGOnl0kHW=
+3EJQQPocxKD4KZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtLYWlsLmNvbcOIIJOyltGgc7vDtTjCytMFU=
+SaSsQ" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+580px;margin:40px auto 30px">
+<tr>
+<td colspan=3D"2">
+<a href=3D"http://enews.newsletters.ocregister.com/q/_vveMmI6tugC0XM5e6-IzB=
+lsqK-Ivq_olJKZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLLmNvbcOIg6HAjXhxf7m_C9bFIieRd=
+oWgww" rel=3D"nofollow noreferrer" target=3D"_blank"><img border=3D"0" src=
+=3D"https://sli.ocregister.com/imp?s=3D759884&amp;li=3D13333091&amp;e=3Dchr=
+istenlobosco@gmail.com&amp;p=3D010322220106&amp;lctg=3D344394F8A5025479D5D3=
+75D4D7" style=3D"width:100%;max-width:580px!important" width=3D"580"></a>
+</td>
+</tr>
+<tr>
+<td align=3D"right">
+<a href=3D"http://enews.newsletters.ocregister.com/q/yf_kH2XFbFyq0XjLz09mEo=
+HwO_qkWWVGzimZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNLvbcOIKpYmtDUPdJNSzFD2A3Emu=
+yyXJQ" rel=3D"nofollow noreferrer" style=3D"display:block;width:116px;float=
+:right;max-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://=
+sli.ocregister.com/imp?s=3D759885&amp;li=3D13333091&amp;e=3Dchristenlobosco=
+@gmail.com&amp;p=3D010322220106"></a>
+</td>
+<td align=3D"left" style=3D"width:19px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/WoWT5egAGhVI0XvSm7FB92=
+efF6dFrkZvWTmZcOJY2hLyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI7iHfMBuldbG4xvz07Jse8=
+ugg3A" rel=3D"nofollow noreferrer" style=3D"display:block;max-width:19px;ma=
+x-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://sli.ocreg=
+ister.com/imp?s=3D759887&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.co=
+m&amp;p=3D010322220106"></a>
+</td>
+</tr>
+</table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/hLR-NxhdDPcC0XqF0LXgjT=
+G9d2JxOgZCsPEZcOJY2hyaXN0ZW5sb2LJvc2NvQGdtYWlsLmNvbcOIvkWLOIpWfr8iNGy3rEs21=
+7hEiA" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">Looking for a COVID-19 test i=
+n Orange County? Many others are too</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/9FjUaDDhY3Zd0X_0BbyLvj=
+b9786LhETPiwGbZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI4jMY9z1wcaNGjKtaUP693=
+OQyGw" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2021/12/OCR-L-COVIDTESTS-1231-03-LO.jpg?w=3D=
+1400px&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"=
+outline:none;text-decoration:none;width:auto;max-width:100%;clear:both;disp=
+lay:block;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+Local health care officials say tests are available =E2=80=93 both in perso=
+n and via free at-home kits Orange County will mail to anyone who asks =E2=
+=80=93 but residents have been reporting long lines, fully booked calendars=
+ and empty shelves at local stores.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/sIwWz6aSAhtb0XvZr0Tsim=
+2KzhdSsf405XPZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYLWlsLmNvbcOILMUm-t2ocJU7sa9fL_cIk=
+CrEJQ" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/xPZ4_1yov8Ow0XdxUMOdY-=
+Ryryf_oIyUxYiZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmLNvbcOIszOaFVfwc65q4hUmOcYMy=
+7UymQ" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">More than 100 flights already=
+ canceled Monday at John Wayne, Long Beach, LAX and Burbank</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/SjZqi7zFCQBp0XxGSoz73K=
+jAK0jINvTKYFxZcOLJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI3EHT0iKsf6hl_kH8JMQ_L=
+tpA0A" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/LDN-L-THANKS-TRAVEL-1119_4.jpg?w=3D1=
+400px&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"o=
+utline:none;text-decoration:none;width:auto;max-width:100%;clear:both;displ=
+ay:block;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+Another wave of flight cancellations hit Southern California airports Monda=
+y, with more than 100 scuttled due to COVID-19 and weather issues as of 6:3=
+0 a.m.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/h85b7zg46sQK0XI2lF1nHj=
+TeGqJ0kUJs2SLZcOJY2hyaXN0ZW5sb2LJvc2NvQGdtYWlsLmNvbcOIYcrM-fElc7vvAay2xqRWb=
+GfLzw" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+580px;margin:40px auto 30px">
+<tr>
+<td colspan=3D"2">
+<a href=3D"http://enews.newsletters.ocregister.com/q/55S2B7Ps-q4W0XzLKNEoOk=
+o8H0TWxUfcLgfoZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI93njVoQueqSvX3oF2sx3p=
+fF44A" rel=3D"nofollow noreferrer" target=3D"_blank"><img border=3D"0" src=
+=3D"https://sli.ocregister.com/imp?s=3D759888&amp;li=3D13333091&amp;e=3Dchr=
+istenlobosco@gmail.com&amp;p=3D010322220106&amp;lctg=3D344394F8A5025479D5D3=
+75D4D7" style=3D"width:100%;max-width:580px!important" width=3D"580"></a>
+</td>
+</tr>
+<tr>
+<td align=3D"right">
+<a href=3D"http://enews.newsletters.ocregister.com/q/tvvF6hdjJgaX0XnuILZvRi=
+NYvw0_QA3MjgdZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWLlsLmNvbcOIX_AUMDrZf5uxD0vt98vo4=
+FnxFw" rel=3D"nofollow noreferrer" style=3D"display:block;width:116px;float=
+:right;max-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://=
+sli.ocregister.com/imp?s=3D759889&amp;li=3D13333091&amp;e=3Dchristenlobosco=
+@gmail.com&amp;p=3D010322220106"></a>
+</td>
+<td align=3D"left" style=3D"width:19px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/MQJ1_7XemfN30XiXj_i7de=
+36BRsm06avLoRWZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIuVXKtsgwcIJxuQBCbkkR-=
+b9UyQ" rel=3D"nofollow noreferrer" style=3D"display:block;max-width:19px;ma=
+x-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://sli.ocreg=
+ister.com/imp?s=3D759891&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.co=
+m&amp;p=3D010322220106"></a>
+</td>
+</tr>
+</table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/vmAYRSVC4-Uj0XUhXvqm1k=
+5pzEBgprNbJ55ZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLLmNvbcOIbfTdqrNLcZjXfY6N5C0XF=
+Gv13g" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">OC high school sports teams f=
+eel impact of COVID-19 surge, make minor adjustments</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/4NGx2mPyHUAD0XLk8aUe3Q=
+BRS00cEejUTGFqZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOISF9mMKJ9d53kLKuGaHulT=
+E5eZQ" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/ocvarsity-covid-update2.jpg?w=3D1400=
+px&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"outl=
+ine:none;text-decoration:none;width:auto;max-width:100%;clear:both;display:=
+block;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+Several games have been canceled or postponed among growing concerns but th=
+e winter sports season continues.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/PknYx2sMNIex0XZ629zVUG=
+Y09IEl6cFMTsmLZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2eFlTsEPdZRsWZPP7_OpV=
+N_gZg" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/xEYPeqWAjzl60XjJhUTeRI=
+iRpKYL0XpNiB8ZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmLNvbcOIuyu_aMZBeZQcqb4qYDkM9=
+L0qvA" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">Grad Nite returns to Disneyla=
+nd in 2022 after two-year coronavirus hiatus</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/BiSomDZi05-M0XeqLlJuyL=
+JgKOPC0Kscx9oYZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI0LyfZ_s9eYui60wOLqep3=
+da9nA" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/OCR-L-GRAD-NITE-1125-FEATURED.jpg?w=
+=3D1400px&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=
+=3D"outline:none;text-decoration:none;width:auto;max-width:100%;clear:both;=
+display:block;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+Grad Nite 2022 celebrations will take place on 16 dates in May and June at =
+Disney California Adventure.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/Q04UgladomXT0XfjRzIx6h=
+oKjR9IiwXthofZLcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIW2V4skSmcYjKzDFbeNQ3X=
+l1kew" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+580px;margin:40px auto 30px">
+<tr>
+<td colspan=3D"2">
+<a href=3D"http://enews.newsletters.ocregister.com/q/Q4BsLQ83k6nV0X0rB4rwNA=
+SGfw1Vl4RB46tZLcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIMFCS5IY_dJzEBnJmrlF96=
+DZRkQ" rel=3D"nofollow noreferrer" target=3D"_blank"><img border=3D"0" src=
+=3D"https://sli.ocregister.com/imp?s=3D759892&amp;li=3D13333091&amp;e=3Dchr=
+istenlobosco@gmail.com&amp;p=3D010322220106&amp;lctg=3D344394F8A5025479D5D3=
+75D4D7" style=3D"width:100%;max-width:580px!important" width=3D"580"></a>
+</td>
+</tr>
+<tr>
+<td align=3D"right">
+<a href=3D"http://enews.newsletters.ocregister.com/q/0gucofvYx1LX00XnZS6obi=
+m2LgyksP_dG7fgZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIKJ1kN_LKe7r8fPZ5Z62V5=
+C6cZw" rel=3D"nofollow noreferrer" style=3D"display:block;width:116px;float=
+:right;max-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://=
+sli.ocregister.com/imp?s=3D759893&amp;li=3D13333091&amp;e=3Dchristenlobosco=
+@gmail.com&amp;p=3D010322220106"></a>
+</td>
+<td align=3D"left" style=3D"width:19px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/UdWwkGXLsFy10XY4H85UVO=
+KPSUqf3Bz241DZcOJYL2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2TCw3KFoeL80kXr4Z-Xfx=
+t8xsw" rel=3D"nofollow noreferrer" style=3D"display:block;max-width:19px;ma=
+x-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://sli.ocreg=
+ister.com/imp?s=3D759895&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.co=
+m&amp;p=3D010322220106"></a>
+</td>
+</tr>
+</table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/ZhOt5r4BSNPx0XRQUQAvSv=
+p2Ju8V_MH-dRcZcOJY2hyaXLN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIrtmxkh_1cax4onIq16HLc=
+6jYsg" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">COVID: Travelers infected one=
+ another across hallway, research shows</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/anqIvnYMYe250XuMSLpy_1=
+djZwxrajdRnI7ZcOJY2hyaXNL0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIUSlv-LuXdrg3w3i2vH42F=
+VcobA" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2021/12/SJM-L-FIRSTCASE-1202-1.jpg?w=3D1400p=
+x&amp;strip=3Dall&amp;resize=3D400px,220px" align=3D"center" style=3D"outli=
+ne:none;text-decoration:none;width:auto;max-width:100%;clear:both;display:b=
+lock;border:none;margin:0 auto;float:none;text-align:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+A traveler isolated for Covid-19 at a quarantine facility in New Zealand ma=
+naged to infect three others across a hallway, researchers reported Thursda=
+y.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/TrQu5UbQIJn80XFRWruWM6=
+6vZ-F2OA1IrXTZcOJLY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIuXi_ann_cro7roEFYeUW2=
+r95vA" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articlehed" style=3D"border-spacing:0;=
+border-collapse:collapse;padding:0;vertical-align:top;text-align:left;width=
+:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;text-=
+align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;padding-rig=
+ht:16px">
+<h2 style=3D"color:inherit;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:16px 0 10px;text-align:left;line-height:1.3em;wo=
+rd-wrap:normal;margin-bottom:10px;font-size:1.7em">
+<a href=3D"http://enews.newsletters.ocregister.com/q/_mTPQlK4WzE60XBOdfuvHS=
+3Gq_ptg02qM3wZcOJY2hyaXN0ZW5sb2Jvc2NLvQGdtYWlsLmNvbcOIfxX1mxkOdrHvhnASgrh3R=
+HkU9g" style=3D"color:#004e98;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:0;margin:0;text-align:left;line-height:1.3;text-decorati=
+on:none" target=3D"_blank" rel=3D"noreferrer">Rep. Greene says Facebook blo=
+cked her account for 24 hours</a>
+</h2>
+</th>
+</tr></tbody></table>
+<table class=3D"m_1388729488663364887articledetails" style=3D"border-spacin=
+g:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;w=
+idth:100%;display:table"><tbody><tr style=3D"padding:0;vertical-align:top;t=
+ext-align:left">
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns m_1=
+388729488663364887first" style=3D"padding-bottom:0px;color:#0a0a0a;font-fam=
+ily:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0 auto;t=
+ext-align:left;line-height:1.3;font-size:16px;padding-left:16px;width:274px=
+;padding-right:8px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<center style=3D"width:100%;min-width:242px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/CbCiz_gGXVED0XZl77VSZS=
+L9ASJiSw_KgceOZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIrckDoGDacpWaVMtfrjyc1=
+qvIAA" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-decora=
+tion:none" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www.ocr=
+egister.com/wp-content/uploads/2022/01/sjm-ne_Ban_39465.jpg-c593b_105083380=
+7_92130824.jpg?w=3D1400px&amp;strip=3Dall&amp;resize=3D400px,220px" align=
+=3D"center" style=3D"outline:none;text-decoration:none;width:auto;max-width=
+:100%;clear:both;display:block;border:none;margin:0 auto;float:none;text-al=
+ign:center"></a>
+</center>
+</th>
+</tr></table>
+</th>
+<th class=3D"m_1388729488663364887small-12 m_1388729488663364887columns" st=
+yle=3D"padding-bottom:0px;color:#0a0a0a;font-family:Helvetica,Arial,sans-se=
+rif;font-weight:normal;padding:0;margin:0 auto;text-align:left;line-height:=
+1.3;font-size:16px;padding-left:8px;width:274px;padding-right:16px">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:normal;padding:0;margin:0;text-align:left;line-height:1.3;font-size:16px=
+">
+<p style=3D"margin:0;color:#5e5e5e;font-family:Helvetica,Arial,sans-serif;f=
+ont-weight:normal;padding:0;text-align:left;line-height:1.5em;font-size:16p=
+x;margin-bottom:10px">
+The congresswoman has a long history of embracing baseless conspiracy theor=
+ies, and she has been a serial tweeter of false claims -- about the electio=
+n, the Capitol insurrection and other subjects -- since she won her seat in=
+ November 2020.
+</p>
+<table class=3D"m_1388729488663364887button" style=3D"border-spacing:0;bord=
+er-collapse:collapse;padding:0;vertical-align:top;text-align:left;width:aut=
+o;margin:0 0 16px 0"><tr style=3D"padding:0;vertical-align:top;text-align:l=
+eft">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+<table style=3D"border-spacing:0;border-collapse:collapse;padding:0;vertica=
+l-align:top;text-align:left"><tr style=3D"padding:0;vertical-align:top;text=
+-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#fefefe;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+;background:#004e98;border:0px solid #004e98">
+<a href=3D"http://enews.newsletters.ocregister.com/q/6yk9VkZvpybI0XQuLsaVKR=
+rNT4wFn4o7PDjWZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIdWJG9UcMdqNhP9HRRYCg3=
+3NjRQ" style=3D"color:#fefefe;font-family:Helvetica,Arial,sans-serif;font-w=
+eight:bold;padding:8px 16px 8px 16px;margin:0;text-align:left;line-height:1=
+.3;text-decoration:none;font-size:16px;display:inline-block;border:0 solid =
+#004e98;border-radius:3px" target=3D"_blank" rel=3D"noreferrer">Read more =
+=E2=86=92</a>
+</td>
+</tr></table>
+</td>
+</tr></table>
+</th>
+</tr></table>
+</th>
+</tr></tbody></table>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width:=
+580px;margin:40px auto 15px">
+<tr>
+<td colspan=3D"2">
+<a href=3D"http://enews.newsletters.ocregister.com/q/52iMFYXdV_5J0XaLperoXm=
+Gh8s7HvfKixY-hZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI0H8FC0ODe4FTi85j7Pmw7=
+tZ-Bg" rel=3D"nofollow noreferrer" target=3D"_blank"><img border=3D"0" src=
+=3D"https://sli.ocregister.com/imp?s=3D759896&amp;li=3D13333091&amp;e=3Dchr=
+istenlobosco@gmail.com&amp;p=3D010322220106&amp;lctg=3D344394F8A5025479D5D3=
+75D4D7" style=3D"width:100%;max-width:580px!important" width=3D"580"></a>
+</td>
+</tr>
+<tr>
+<td align=3D"right">
+<a href=3D"http://enews.newsletters.ocregister.com/q/uh93hek0O05v0XSp-x79m1=
+hW2CmcobwbOkOZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlLsLmNvbcOIWGRDpQevcY2KyIv1p_aWC=
+l5lQA" rel=3D"nofollow noreferrer" style=3D"display:block;width:116px;float=
+:right;max-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://=
+sli.ocregister.com/imp?s=3D759897&amp;li=3D13333091&amp;e=3Dchristenlobosco=
+@gmail.com&amp;p=3D010322220106"></a>
+</td>
+<td align=3D"left" style=3D"width:19px">
+<a href=3D"http://enews.newsletters.ocregister.com/q/oc-ndA5gjvwo0Xfmu9Tx-z=
+cCpFXpY6V4cVnZcOJY2hyaXN0ZW5sb2Jvc2NvQLGdtYWlsLmNvbcOIwRYfFwW5dIMqotdOe7lx-=
+McXHA" rel=3D"nofollow noreferrer" style=3D"display:block;max-width:19px;ma=
+x-height:15px" target=3D"_blank"><img border=3D"0" src=3D"https://sli.ocreg=
+ister.com/imp?s=3D759899&amp;li=3D13333091&amp;e=3Dchristenlobosco@gmail.co=
+m&amp;p=3D010322220106"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td height=3D"20px" style=3D"font-size:20px;line-height:20px;word-wrap:brea=
+k-word;border-collapse:collapse!important;padding:0;vertical-align:top;text=
+-align:left;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weigh=
+t:normal;margin:0"> </td>
+</tr>
+</tbody></table>
+</center>
+</td>
+</tr>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+
+<table class=3D"m_1388729488663364887globalfooter" style=3D"border-spacing:=
+0;border-collapse:collapse;padding:0;vertical-align:top;text-align:left;wid=
+th:100%;max-width:710px;margin:auto"><tbody><tr style=3D"padding:0;vertical=
+-align:top;text-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+">
+
+<div style=3D"margin:0 auto;max-width:710px;background-color:#ffffff;font-f=
+amily:Arial,sans-serif;color:#000">
+<table style=3D"border-spacing:0;border-bottom:1px solid #000;text-align:ce=
+nter;margin:0px auto;max-width:770px;border-collapse:collapse;padding:0;ver=
+tical-align:top" width=3D"85%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" align=3D"center"><tbody><tr style=3D"padding:0;vertical-align:top;te=
+xt-align:left">
+<td style=3D"word-wrap:break-word;border-collapse:collapse!important;paddin=
+g:0;vertical-align:top;text-align:left;color:#0a0a0a;font-family:Helvetica,=
+Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16px=
+" valign=3D"top" align=3D"center">
+<h5 style=3D"margin:0 0 5px 0;text-transform:none;color:#000;text-align:cen=
+ter;font-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;lin=
+e-height:1.3;word-wrap:normal;margin-bottom:10px;font-size:20px">Connect wi=
+th The Orange County Register</h5>
+</td>
+</tr></tbody></table>
+<table style=3D"border-spacing:0;text-align:center;margin:10px auto;max-wid=
+th:770px;border-collapse:collapse;padding:0;vertical-align:top" width=3D"10=
+0%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center"><tbod=
+y><tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td style=3D"padding-left:10px;padding-right:10px;word-wrap:break-word;bord=
+er-collapse:collapse!important;padding:0;vertical-align:top;text-align:left=
+;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:normal;ma=
+rgin:0;line-height:1.3;font-size:16px" valign=3D"top" align=3D"center">
+<table width=3D"85%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=
+=3D"center" style=3D"border-spacing:0;border-collapse:collapse;padding:0;ve=
+rtical-align:top;text-align:left"><tbody>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td style=3D"text-align:center;word-wrap:break-word;border-collapse:collaps=
+e!important;padding:0;vertical-align:top;color:#0a0a0a;font-family:Helvetic=
+a,Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16=
+px" width=3D"85%%" valign=3D"top" align=3D"center">
+<h6 style=3D"margin:0;text-transform:none;color:#000;text-align:center;font=
+-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;line-height=
+:1.3;word-wrap:normal;margin-bottom:10px;font-size:18px">Digital Subscripti=
+on</h6>
+<span style=3D"display:block;padding:5px 0;margin:0">Sign up for a digital =
+subscription to <a href=3D"http://enews.newsletters.ocregister.com/q/Zw9EUx=
+yOhuMV0X_nScT9tAisoXnG6Sk9T_eZcOJY2hyaXLN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIlpaGO=
+YkBeabPfpcmjQdMwZCXhQ" style=3D"color:#2199e8;font-family:Helvetica,Arial,s=
+ans-serif;font-weight:normal;padding:0;margin:0;text-align:left;line-height=
+:1.3;text-decoration:none" target=3D"_blank" rel=3D"noreferrer">The Orange =
+County Register</a></span>
+<span style=3D"display:block;padding:5px 0;margin:0"><a href=3D"http://enew=
+s.newsletters.ocregister.com/q/Vrb4ZNxstaC60X_AlFiZH8SqwaEvTPQM0NrZcOJY2Lhy=
+aXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIK8yUaWWgf7GsigDYJER7Ei3Nlw" style=3D"color:=
+#2199e8;font-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0=
+;margin:0;text-align:left;line-height:1.3;text-decoration:none" target=3D"_=
+blank" rel=3D"noreferrer">Sign up</a> for more newsletters</span>
+</td>
+</tr>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td style=3D"text-align:center;word-wrap:break-word;border-collapse:collaps=
+e!important;padding:0;vertical-align:top;color:#0a0a0a;font-family:Helvetic=
+a,Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3;font-size:16=
+px" width=3D"85%" valign=3D"top" align=3D"center">
+<h6 style=3D"margin:0;text-transform:none;color:#000;text-align:center;font=
+-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;line-height=
+:1.3;word-wrap:normal;margin-bottom:10px;font-size:18px">Follow us</h6>
+<a href=3D"http://enews.newsletters.ocregister.com/q/3Z0srInUpS3p0LXC7nQUhH=
+JJNtuLn5zcLW1mZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIt5Y4JboIcLp79j6Ezmdzd=
+rGXOw" style=3D"text-decoration:none;display:inline-block;color:#2199e8;fon=
+t-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0;t=
+ext-align:left;line-height:1.3" target=3D"_blank" rel=3D"noreferrer">
+<img src=3D"https://mediacdn.espssl.com/email/Composer/Icons/square/large/c=
+olor/images/facebook.png" alt=3D"facebook" width=3D"25" height=3D"25" borde=
+r=3D"0"></a>
+<a href=3D"http://enews.newsletters.ocregister.com/q/LMkiDbl96tbH0X_7QJ7qHu=
+JA3uq7hXJLGJIeZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIPRG0dWw_fLfT1v9msu5_Y=
+TsQtw" style=3D"text-decoration:none;display:inline-block;color:#2199e8;fon=
+t-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0;t=
+ext-align:left;line-height:1.3" target=3D"_blank" rel=3D"noreferrer">
+<img src=3D"https://mediacdn.espssl.com/email/Composer/Icons/square/large/c=
+olor/images/twitter.png" alt=3D"twitter" width=3D"25" height=3D"25" border=
+=3D"0"></a>
+<a href=3D"http://enews.newsletters.ocregister.com/q/TF7GeyeIb3np0XTQKmKrS2=
+pz4uXb6syJfWqZcOJLY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOIJgu1SUh-doMBoaeYtJCb_=
+iAKtg" style=3D"text-decoration:none;display:inline-block;color:#2199e8;fon=
+t-family:Helvetica,Arial,sans-serif;font-weight:normal;padding:0;margin:0;t=
+ext-align:left;line-height:1.3" target=3D"_blank" rel=3D"noreferrer">
+<img src=3D"https://mediacdn.espssl.com/email/Composer/Icons/square/large/c=
+olor/images/instagram.png" alt=3D"instagram" width=3D"25" height=3D"25" bor=
+der=3D"0"></a>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr></tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;margin:0 aut=
+o;background-color:#ffffff;text-align:center;font-size:10px;font-family:san=
+s-serif;padding:10px 10px 0;border-spacing:0;border-collapse:collapse;verti=
+cal-align:top" width=3D"100%"><tbody>
+<tr style=3D"padding:0;vertical-align:top;text-align:left">
+<td align=3D"center" valign=3D"top" width=3D"100%" style=3D"padding-top:0px=
+;font-size:14px;text-align:center;word-wrap:break-word;border-collapse:coll=
+apse!important;padding:0;vertical-align:top;color:#0a0a0a;font-family:Helve=
+tica,Arial,sans-serif;font-weight:normal;margin:0;line-height:1.3">
+You are receiving this email because you are signed up for this newsletter =
+from the Southern California News Group, which is comprised of the Orange C=
+ounty Register, Press-Enterprise, Los Angeles Daily News, Long Beach Press-=
+Telegram, Daily Breeze, San Gabriel Valley Tribune, Pasadena Star-News, Whi=
+ttier Daily News, San Bernardino Sun, Inland Valley Daily Bulletin and Redl=
+ands Daily Facts
+<br><a href=3D"http://enews.newsletters.ocregister.com/q/g02xDzWpuRnd0XGM19=
+Kj_fdAuwiVOAVegePZcOJY2hyaXN0ZW5sbL2Jvc2NvQGdtYWlsLmNvbcOIAdnNbQhEcKWbPnX_4=
+9IuhgfYzg" style=3D"color:#2199e8;font-family:Helvetica,Arial,sans-serif;fo=
+nt-weight:normal;padding:0;margin:0;text-align:left;line-height:1.3;text-de=
+coration:none" target=3D"_blank" rel=3D"noreferrer">Unsubscribe</a> | =C2=
+=A9 2022 The Orange County Register 2190 S. Towne Center Place Anaheim, CA =
+92806 </td>
+</tr>
+<tr style=3D"padding:0;vertical-align:top;text-align:left"></tr>
+</tbody></table>
+</div>
+</td>
+</tr></tbody></table>
+</td>
+</tr>
+</table>
+<img src=3D"http://enews.newsletters.ocregister.com/q/jZd1SdPAQ_2jdu0Oi5mUN=
+blv0zPcOXtnLs" alt=3D"" width=3D"20" height=3D"1"></div>
+
+
+</div>
+
+--0000000000003d52a105d4d8a512--
