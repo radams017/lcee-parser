@@ -13,7 +13,7 @@ const parseHTMLString = (str) => {
     } else {
     let arr = []
     for (urls of srcUrls) {
-        // this needs to be refactored -- I am basically trying to remove the beginning and end quotes/src stuff but can't figure out how to chain it
+        // this needs to be refactored -- I am basically trying to remove the beginning and end quotes/src stuff but can't figure out how to chain it. This is also pretty hardcoded and relies on the URLS being the same format
         let urlFrontTrim = urls.substring(5);
         let finalUrls = urlFrontTrim.substring(0, urlFrontTrim.length - 1);
         arr.push(finalUrls);
@@ -27,7 +27,7 @@ const parseHTMLString = (str) => {
 new EmlParser(fs.createReadStream(process.argv[2]))
 .getEmailBodyHtml()
 .then(htmlString => {
-    fs.writeFileSync('file.html',htmlString)
+    fs.writeFileSync('decoded_email.html',htmlString)
     parseHTMLString(htmlString)
 })
 .catch(err => {
