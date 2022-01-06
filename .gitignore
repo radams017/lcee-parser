@@ -130,4 +130,4 @@ dist
 .DS-store
 
 # this app specifically
-.html
+*.html
