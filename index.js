@@ -15,11 +15,12 @@ const parseHTMLString = (str) => {
   } else {
     let arr = [];
     for (urls of srcUrls) {
-      // this needs to be refactored -- I am basically trying to remove the beginning and end quotes/src stuff but can't figure out how to chain it. This is also pretty hardcoded and relies on the URLS being the same format
-      let urlFrontTrim = urls.substring(5);
-      let finalUrls = urlFrontTrim.substring(0, urlFrontTrim.length - 1);
-      arr.push(finalUrls);
+      // removing "src=" & trailing " from urls
+      let trimmedUrls = urls.substring(5).substring(0, urls.length - 1);
+      // push all the trimmed URLs into an array
+      arr.push(trimmedUrls);
     }
+    // filter only the LCTG related URLs into the Array
     let lctgArr = arr.filter((url) => url.match(/.*lctg=([^&|\n|\t\s]+)/));
     console.log(lctgArr);
   }
@@ -35,3 +36,5 @@ new EmlParser(fs.createReadStream(process.argv[2]))
   .catch((err) => {
     console.log(err);
   });
+
+  
