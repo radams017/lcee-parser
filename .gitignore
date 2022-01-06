@@ -128,3 +128,6 @@ dist
 
 #mac
 .DS-store
+
+# this app specifically
+.html
