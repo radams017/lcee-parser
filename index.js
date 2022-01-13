@@ -3,13 +3,13 @@ const fs = require("fs");
 const { isRegExp } = require("util");
 
 // Search through the HTML string and return the LCTG values. Probably should refactor this into more than one function.
-const parseHTMLString = (str) => {
+const parseLCTGUrls = (str) => {
   let html = str;
   let srcUrls = html.match(/src\s*=\s*"(.+?)"/g);
   let lctg = html.match(/lctg=\S{26}/g);
   if (!lctg) {
     console.log(
-      "LCTG Parameter Not Found\n\nCheck Outputted HTML File for potential redirect links"
+      "LCTG Parameter Not Found\n\nCheck Outputted HTML File for potential redirect links/Different Parameter"
     );
     return;
   } else {
@@ -22,6 +22,7 @@ const parseHTMLString = (str) => {
     }
     // filter only the LCTG related URLs into the Array
     let lctgArr = arr.filter((url) => url.match(/.*lctg=([^&|\n|\t\s]+)/));
+    console.log("Image Source URLs\n")
     console.log(lctgArr);
   }
 };
@@ -31,7 +32,7 @@ new EmlParser(fs.createReadStream(process.argv[2]))
   .getEmailBodyHtml()
   .then((htmlString) => {
     fs.writeFileSync("decoded_email.html", htmlString);
-    parseHTMLString(htmlString);
+    parseLCTGUrls(htmlString);
   })
   .catch((err) => {
     console.log(err);
