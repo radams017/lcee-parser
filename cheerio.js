@@ -2,6 +2,8 @@ const cheerio = require("cheerio");
 const EmlParser = require("eml-parser");
 const fs = require("fs");
 const request = require("request");
+const rp = require("request-promise");
+const Promise = require("bluebird");
 
 function parseHTML(str) {
   const $ = cheerio.load(str);
@@ -14,10 +16,19 @@ function parseHTML(str) {
   });
   let result = links.map((a) => a.href);
   let hrefs = result.filter((url) => url.match(/http[s]?/));
-  //   console.log(hrefs);
-  for (urls of hrefs) {
-    getRedirectedURL(urls)
-  }
+  return Promise.map(hrefs, getRedirectedURL);
+}
+
+function retrieveURL(response, body) {
+  //   console.log("Init URL:", url);
+  //   console.log("statusCode:", response && response.statusCode);
+  // console.log(response)
+  // console.log(JSON.stringify(body))
+  // let redURL = response.request.uri.href;
+  let redURL = response.request.uri.href;
+  // let lctgRedirectURL = lctgRedirect.match(/lctg?/)
+  //   console.log(redURL, "\n");
+  return redURL;
 }
 
 function getRedirectedURL(url) {
@@ -27,15 +38,12 @@ function getRedirectedURL(url) {
       "User-Agent":
         "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Mobile Safari/537.36",
     },
+    resolveWithFullResponse: true,
   };
-  request(options, (error, response, body) => {
-    //   console.log("Init URL:", url);
-    //   console.log("statusCode:", response && response.statusCode);
-    let reURL = response.request.uri.href;
-    // let lctgRedirectURL = lctgRedirect.match(/lctg?/)
-    // console.log(lctgRedirectURL, "\n");
-  });
+  return rp(options).then(retrieveURL);
 }
+
+// promise.map('array of promises') => resolve to a new array with answer to each promise
 
 // getRedirectedURL('http://enews.newsletters.ocregister.com/q/FK8ps9rHfGQH0XS2aeoNHATJ4Lw9ntACpd2IZcOJY2hyaXN0ZW5sb2Jvc2NvQGdtYWlsLmNvbcOI2waCAOzNcrYk8oiIU4on290HgQ', function(err, response) {
 //     let reURL = response.request.uri.href;
@@ -46,6 +54,10 @@ new EmlParser(fs.createReadStream(process.argv[2]))
   .getEmailBodyHtml()
   .then((htmlString) => {
     fs.writeFileSync("decoded_email.html", htmlString);
-    parseHTML(htmlString);
+    return parseHTML(htmlString).then((answers) => {
+      console.log(answers);
+    });
   })
-  .catch((err) => {});
+  .catch((err) => {
+      console.log("Unhandled Error: ", err)
+  });
